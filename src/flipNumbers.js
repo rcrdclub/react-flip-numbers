@@ -12,6 +12,7 @@ type Props = {
   perspective?: number,
   duration?: number,
   delay?: number,
+  loop?: number,
   animate?: boolean,
   play?: boolean,
   numberStyle?: { [string]: string | number },
@@ -35,6 +36,7 @@ export default class FlipNumbers extends React.Component<Props> {
       nextProps.width !== this.props.width ||
       nextProps.duration !== this.props.duration ||
       nextProps.delay !== this.props.delay ||
+      nextProps.loop !== this.props.loop ||
       nextProps.play !== this.props.play
     );
   }
@@ -53,6 +55,7 @@ export default class FlipNumbers extends React.Component<Props> {
       animate,
       play,
       delay,
+      loop,
     } = this.props;
     let numberCounter = 0;
 
