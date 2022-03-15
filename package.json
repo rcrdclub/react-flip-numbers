@@ -62,8 +62,6 @@
     "flow-bin": "^0.93.0",
     "flow-typed": "^2.5.1",
     "jest": "^24.1.0",
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
     "react-test-renderer": "^16.8.3",
     "rimraf": "^2.6.3",
     "rollup": "^1.2.2",
@@ -72,8 +70,8 @@
     "rollup-plugin-flow": "^1.1.1"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "react": "^16.8.3 || ^17.0.0",
+    "react-dom": "^16.8.3 || ^17.0.0",
     "react-simple-animate": "^3.0.1"
   },
   "dependencies": {
