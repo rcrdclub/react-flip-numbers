@@ -17,7 +17,7 @@
     "coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "build": "rollup -c",
     "lint": "eslint ./src",
-    "prepublish": "yarn test && yarn flow && yarn lint && yarn run clean && yarn build",
+    "cancel-prepublish": "yarn test && yarn flow && yarn lint && yarn run clean && yarn build",
     "flow": "flow"
   },
   "repository": "https://github.com/bluebill1049/react-flip-numbers.git",
