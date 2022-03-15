@@ -8,10 +8,10 @@ const commonAnimateStyle = {
   transformStyle: 'preserve-3d',
 };
 const easeType = 'cubic-bezier(0.19, 1, 0.22, 1)';
-const revolutionDegrees = 360;
-const resetRouteCounter = 1000;
+const revolutionDegrees = 1;
+// const resetRouteCounter = 1000;
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const rotateDegreePerNumber = 36;
+const rotateDegreePerNumber = 0.10;
 
 type Props = {
   position: number,
@@ -35,16 +35,13 @@ type State = {
 };
 
 const calculateDegrees = (rotateCounter, activeNumber, loop = 0) => {
-  const animateDegree = numbers.findIndex(v => v === activeNumber) * rotateDegreePerNumber + loop * revolutionDegrees;
-  const amountDegree = rotateCounter * revolutionDegrees;
+  let animateDegree = numbers.findIndex(v => v === activeNumber) * rotateDegreePerNumber + loop * revolutionDegrees;
 
-  let newRotateCounter = activeNumber === 0 ? rotateCounter + 1 : rotateCounter;
-  newRotateCounter = rotateCounter > resetRouteCounter ? 0 : newRotateCounter;
-  const amountDegree = newRotateCounter * revolutionDegrees;
+  animateDegree += rotateCounter;
 
   return {
-    rotateCounter: newRotateCounter,
-    degree: - amountDegree - animateDegree,
+    rotateCounter: rotateCounter + loop * revolutionDegrees,
+    degree: - animateDegree,
   };
 };
 
@@ -129,7 +126,7 @@ export default class FlipNumber extends React.Component<Props, State> {
           }}
           end={{
             ...commonAnimateStyle,
-            transform: `rotateX(${degree}deg)`,
+            transform: `rotateX(${degree}turn)`,
           }}
           {...{ easeType, duration, delay }}
           render={({ style }) => (
@@ -151,7 +148,7 @@ export default class FlipNumber extends React.Component<Props, State> {
                     background,
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
-                    transform: `rotateX(${rotateDegreePerNumber * i}deg) translateZ(${translateZ}px)`,
+                    transform: `rotateX(${rotateDegreePerNumber * i}turn) translateZ(${translateZ}px)`,
                     ...numberStyle,
                   }}
                   key={`${rotateDegreePerNumber * i}`}
@@ -179,7 +176,7 @@ export default class FlipNumber extends React.Component<Props, State> {
             WebkitFontSmoothing: 'antialiased',
             color,
             background,
-            transform: `rotateX(0deg) translateZ(${translateZ}px)`,
+            transform: `rotateX(0turn) translateZ(${translateZ}px)`,
             visibility: 'hidden',
             ...numberStyle,
           }}

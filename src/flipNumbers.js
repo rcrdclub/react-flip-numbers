@@ -25,6 +25,7 @@ export default class FlipNumbers extends React.Component<Props> {
     animate: true,
     play: false,
     delay: 0,
+    loop: 1,
     nonNumberStyle: {},
     numberStyle: {},
   };
@@ -89,6 +90,7 @@ export default class FlipNumbers extends React.Component<Props> {
                   duration,
                   play,
                   delay,
+                  loop,
                   numberStyle,
                 }}
                 position={numberCounter}
