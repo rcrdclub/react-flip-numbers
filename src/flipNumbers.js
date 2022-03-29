@@ -16,6 +16,7 @@ type Props = {
   animate?: boolean,
   play?: boolean,
   numberStyle?: { [string]: string | number },
+  style: { [string]: string | number },
 };
 
 export default class FlipNumbers extends React.Component<Props> {
@@ -47,6 +48,7 @@ export default class FlipNumbers extends React.Component<Props> {
       numbers,
       nonNumberStyle,
       numberStyle,
+      style,
       height,
       width,
       color,
@@ -66,6 +68,7 @@ export default class FlipNumbers extends React.Component<Props> {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          ...style,
         }}
         aria-label={numbers}
       >
